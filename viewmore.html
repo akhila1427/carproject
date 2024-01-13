@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #content-container {
+      border: 1px solid black;
+      padding: 20px; 
+      max-width: 600px;
+      max-height: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    li {
+      border: 1px solid black;
+      list-style-type: none;
+      padding: 10px;
+      width: 480px;
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<body>
+
+
+    <img src="" alt="">
+    <h1></h1>
+
+    <script>
+      var a = localStorage.getItem("viewmore");
+      console.log(a);
+
+      var b = JSON.parse(a);
+      console.log(b);
+
+      let img = document.getElementsByTagName("img");
+      img[0].setAttribute("src", b.image)
+      img[0].style.width = "500px";
+      img[0].style.height = "300px";
+
+      var c = []
+      c.push(b)
+      c.map((val) => {
+        let d = document.createElement("li")
+        d.innerText = val.id
+        document.body.appendChild(d)
+      })
+
+      var c = []
+      c.push(b)
+      c.map((val) => {
+        let d = document.createElement("li")
+        d.innerText = val.title
+        document.body.appendChild(d)
+      })
+
+      var c = []
+      c.push(b)
+      c.map((val) => {
+        let d = document.createElement("li")
+        d.innerText = val.description
+        document.body.appendChild(d)
+      })
+
+      var c = []
+      c.push(b)
+      c.map((val) => {
+        let d = document.createElement("li")
+        d.innerText = val.category
+        document.body.appendChild(d)
+      })
+
+      var c = []
+      c.push(b)
+      c.map((val) => {
+        let d = document.createElement("li")
+        d.innerText = val.price
+        document.body.appendChild(d)
+      })
+
+bt1.addEventListener("click", function () {
+  localStorage.setItem("Add to Cart", JSON.stringify(b));
+  window.location.assign("./addto.html");
+});
+document.body.appendChild(bt1);
+    </script>
+
+</body>
+</html>

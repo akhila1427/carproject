@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body{background-image: url(./ca.jpg);
+        background-repeat: no-repeat;
+    background-size: cover;}
+    form{color: black;
+    font-weight: bold;
+font-size: 20px;}
+    </style>
+</head>
+<body>
+    <h1>Contact With Us</h1>
+
+    <br><br><br><br>
+    <center>
+    <div style="border: 1px solid black; width: 300px;">
+        <br><br>
+        <form id="contactForm">
+            FirstName: <input type="text" id="firstName"><br><br>
+            LastName: <input type="text" id="lastName"><br><br>
+            Email.ID: <input type="text" id="email"><br><br>
+            <label for="myTextarea">Message:</label>
+            <textarea id="myTextarea" name="myTextarea" rows="4" cols="30"></textarea>
+            <input type="button" value="Submit" onclick="submitForm()"><br><br>
+        </form>
+    </div>
+    <br><br>
+  <a href="https://www.facebook.com/CarDekho/"><img src="./fa.jpg" width="100px" height="100px" style="border-radius: 40px;"></a> 
+  <a href="https://www.instagram.com/cardekhoindia/?hl=en"><img src="./ti.jpg" width="100px" height="100px" style="border-radius: 40px;"></a> 
+  <a href="https://twitter.com/CarDekho?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="./in.jpg" width="100px" height="100px"></a> 
+    </center>
+
+    <script>
+        function submitForm() {
+            // Get values from the form
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("myTextarea").value;
+
+           
+            alert("Thank you! We received your details.");
+
+            window.location.href = "main.html";
+        }
+    </script>
+</body>
+</html>

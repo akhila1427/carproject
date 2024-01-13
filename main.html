@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rental Car</title>
+  <!-- Bootstrap CSS -->
+  
+<style>
+   table,
+  tr,
+  th,
+  td,
+  image {
+    border: 1px solid silver;
+    /* padding: 10px; */
+    border-radius: 3px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; 
+  }
+
+  div {
+    text-align: center;
+  }
+  body{background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+    background-repeat: no-repeat;
+  background-size: cover;}
+
+  ul.navbar {
+      list-style-type: none;
+      padding: 5px;
+      margin: 0;
+      font-size: 25px;
+      background-color: #001F3F;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    ul.navbar li {
+      display: inline-block;
+      margin: 0 30px;
+      color: #ffffff;
+    }
+
+    ul.navbar a:hover {
+      text-decoration: none;
+      background-color: lightsalmon;
+      border-radius: 10px;
+    }
+
+    
+
+    .website-name:hover{
+      font-size: 30px;
+      font-weight: bold;
+      color:yellow;
+      background-color: lightsalmon;
+      border-radius: 10px;
+      position: relative;
+      top: 15px;
+   
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      top: 15px;
+    }
+
+    .logo img {
+      margin-right: 10px;
+      width: 80px;
+      height: 80px;
+    }
+
+   
+  .id-column {
+    text-align: center;
+  }
+  
+ </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="navbar">
+      <div class="logo">
+        <img src="./ba.jpg" alt="Website Logo" >
+        <span class="website-name">Royal Cars</span>
+      </div>
+      <div>
+        <a href=""><li>Home</li></a>
+        <a href="./about.html"><li>About</li></a>
+        <a href="./contactus.html"><li>Contact Us</li></a>
+        <a href="./login.html"><li>Login</li></a>
+        <a href="./signup.html"><li>signup</li></a>
+        <a href="./addto.html">
+          <img src="./a.png" alt="Add to Cart" width="80px" height="45px" style="position: relative; top: 16px;">
+      </a>
+
+      </div>
+    </ul>
+  
+
+    <!-- ============================================================= -->
+    
+      <img src="./ba2.jpg" alt="Zoomable Image" style="width: 100%; height: 700px;">
+
+    <br><br>
+  <!-- =============================================================================== -->
+   
+  <script href="">
+   let obj= [
+   
+    {
+        "id": 1,
+        "title": "TATA Nexon 5 seater Car",
+        "price": 2000,
+        "description": "It can seat up to 5 people. Ground Clearance: It has a ground clearance of 208mm. Engine and Transmission: The 2023 Tata Nexon gets both petrol and diesel engine options: a 1.2-litre turbo-petrol (120PS/170Nm) and a 1.5-litre diesel engine (115PS/260Nm).",
+        "category": "Car Rental",
+        "image": "./1.jpg",
+        "rating": {
+            "rate": 4.0,
+          
+        }
+    },
+    {
+        "id": 2,
+        "title": "Hyundai Creta 5 seater Car ",
+        "price": 2000,
+        "description": "The Hyundai Creta has 1 Diesel Engine and 2 Petrol Engine on offer. The Diesel engine is 1493 cc while the Petrol engine is 1497 cc and 1498 cc . It is available with Automatic & Manual transmission.Depending upon the variant and fuel type the Creta has a mileage of 14.0 to 18.0 kmpl ..",
+        "category": "Car Rental",
+        "image": "./2.jpg",
+        "rating": {
+            "rate": 4.0,
+         
+        }
+    },
+    {
+        "id": 3,
+        "title": "Duster 7 Seater luxurious Car",
+        "price": 2200,
+        "description": "Under the comfort and convenience department, Duster is provided with all essential features that are needed in a utility vehicle. The car has got rear air conditioning vents, 8-way adjustable driver seat, steering mounted audio controls, adjustable steering wheel.",
+        "category": "Car Rental",
+        "image": "./3.jpg",
+        "rating": {
+            "rate": 4.2,
+            
+        }
+    },
+    {
+        "id": 4,
+        "title": "Swift Dzire 5 Seater Car",
+        "price": 1900,
+        "description": "The top-end model Maruti Suzuki Dzire ZXi Plus AGS comes with safety features like 2 Airbags (Driver, Passenger), Seat Belt Warning, Child Lock, Anchor Points for Child Seat, Overspeed Warning, Speed Sensing Door Lock, Anti theft Engine immobilizer, Middle rear three-point seatbelt.",
+        "category": "Car Rental",
+        "image": "./4.jpg",
+        "rating": {
+            "rate": 3.9,
+           
+        }
+    },
+    {
+        "id": 5,
+        "title": "Maruti Suzuki 5 seater Ertiga Car",
+        "price": 1850,
+ "description": "Very strong and quick pickup and has very nice interiors and exteriors. I recommend never taking a 2nd chance to think about another car. Just go for it and worth buying, I rate 5 stars for this affordable car..",
+        "category": "Car Rental",
+        "image": "./5.jpg",
+        "rating": {
+            "rate": 3.9,
+            "count": 400
+        }
+    },
+    {
+        "id": 6,
+        "title": "Honda City 5 seater car ",
+        "price": 2100,
+        "description": "The Petrol engine is 1498 cc . It is available with Manual & Automatic transmission. Depending upon the variant and fuel type the City has a mileage of 17.8 to 18.4 kmpl . The City is a 5 seater 4 cylinder car and has length of 4583, width of 1748 and a wheelbase of 2600..",
+        "category": "Car Rental",
+        "image": "./6.jpg",
+        "rating": {
+            "rate": 4.0,
+            "count": 70
+        }
+    },
+    {
+        "id": 7,
+        "title": "Morris Garrage Hector 7 seater Car",
+        "price": 2500,
+        "description": " the MG Hector is India's first car that will offer connectivity on the go. And the brain behind it is the revolutionary i-SMART Next Gen technology. It combines hardware, software, connectivity, services and applications to make your driving experience easier, smoother, and smarter.",
+        "category": "Car Rental",
+        "image": "./7.jpg",
+        "rating": {
+            "rate": 4.2,
+            "count": 400
+        }
+    },
+    {
+        "id": 8,
+        "title": "volkswagen 5 seater car",
+        "price": 2400,
+        "description": "luxury and comfort is at the core of the new Innova Crysta. Be it the plush, camel tan seats, enhanced legroom or soft-touch materials, the new Innova spells unparalleled refinement and class.",
+        "category": "Car Rental",
+        "image": "./8.jpg",
+        "rating": {
+            "rate": 4.0,
+            "count": 100
+        }
+    },
+    {
+        "id": 9,
+        "title": "BMW Car ",
+        "price": 4000,
+        "description": "multi-zone climate control, a panoramic sunroof, multiple driving modes, connected car tech, premium audio setup, and more. The automaker also has started offering ADAS-tech on its cars, allowing them up to Level 2 semi-autonomous driving capabilities",
+        "category": "Car Rental",
+        "image": "./9.jpg",
+        "rating": {
+            "rate": 4.4,
+            "count": 203
+        }
+        
+    }]
+  
+    
+    let tabl=document.createElement("table")
+    document.body.appendChild(tabl)
+
+  obj.map((val,index,arr)=>{
+      let tr1=document.createElement("tr")
+      tabl.appendChild(tr1)
+
+      let td1=document.createElement("td")
+      td1.innerText=val.id
+      td1.style.width="50px"
+      td1.style.fontWeight = "bold";
+      td1.className = "id-column"
+      td1.style.color="black";
+      tr1.appendChild(td1)
+
+
+      let td2=document.createElement("td")
+      td2.innerText=val.title
+      td2.style.width="250px"
+      td2.style.fontSize="20px"
+      td2.style.color="black"
+      td2.style.fontWeight = "bold";
+      tr1.appendChild(td2)
+
+
+      let td3 = document.createElement("td");
+let im = document.createElement("img");
+im.setAttribute("src", val.image);
+im.style.width = "750px";
+im.addEventListener("mouseover", function () {
+  im.style.transform = "scale(1.1)";
+  im.style.transition = "transform 0.3s";
+});
+im.addEventListener("mouseout", function () {
+  im.style.transform = "scale(1)";
+});
+td3.style.textAlign = "center"; 
+td3.appendChild(im);
+tr1.appendChild(td3);
+
+     
+let td4=document.createElement("td")
+let btn=document.createElement("button")
+btn.innerText="view more";
+btn.style.width="100px";
+btn.style.height="40px";
+btn.style.borderRadius="15px";
+btn.style.fontSize="16px";
+btn.style.backgroundColor="lightgreen";
+btn.addEventListener("click",function(e){
+  e.preventDefault();
+  localStorage.setItem("viewmore",JSON.stringify(val))
+window.location.assign("./viewmore.html")
+})
+td4.appendChild(btn)
+tr1.appendChild(td4)
+
+
+
+
+let td5 = document.createElement("td");
+    let addToCartImg = document.createElement("img");
+    addToCartImg.src = "./add.png"; 
+    addToCartImg.alt = "Add to Cart";
+    addToCartImg.style.width = "100px";
+    addToCartImg.style.height = "100px";
+    addToCartImg.style.borderRadius = "50px";  
+addToCartImg.style.cursor = "pointer";
+ addToCartImg.addEventListener("click", () => {
+      let cart = localStorage.getItem("item");
+      let cart1 = cart !== null ? JSON.parse(cart) : [];
+      let qua = cart1.find((item) => item.id === obj[index].id);
+      if (qua) {
+        qua.quantity = (qua.quantity || 1) + 1;
+      } else {
+        obj[index].quantity = 1;
+        cart1.push(obj[index]);
+      }
+
+      localStorage.setItem("item", JSON.stringify(cart1));
+      window.location.assign("./addto.html");
+    });
+
+    td5.appendChild(addToCartImg);
+    tr1.appendChild(td5);
+  });
+
+  var a = document.createElement("div");
+a.innerText = "Address";
+a.style.fontWeight = "bold";
+a.style.color = "yellow";
+a.style.fontSize = "25px";
+document.body.appendChild(a);
+
+
+var footer = document.createElement("div");
+footer.className = "footer";
+footer.style.backgroundColor = "#001F3F";
+footer.style.padding = "20px";
+footer.style.fontWeight = "bold";
+footer.style.color = "white";
+footer.style.textAlign = "center";
+document.body.appendChild(footer);
+
+var contactDetails = document.createElement("div");
+contactDetails.className = "contact-details";
+contactDetails.style.backgroundColor = "#001F3F"; 
+
+contactDetails.innerHTML = "<p>Email: Royalcars@gmail.com</p><p>Contact Number: +1234 5566 6462r</p>";
+footer.appendChild(contactDetails);
+
+
+  var socialLinks = document.createElement("div");
+  socialLinks.className = "social-links";
+  socialLinks.innerHTML =
+    '<a href="https://www.facebook.com/CarDekho/"><img src="./so1.jpg" width="70px" height="50px"></a>' +
+    '<a href="https://www.instagram.com/cardekhoindia/?hl=en"><img src="./so2.jpg" width="70px" height="50px"></a>' +
+    '<a href="https://twitter.com/CarDekho?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="so3.jpg" width="70px" height="50px"></a>';
+  
+  footer.appendChild(socialLinks);
+
+
+
+  </script>
+  </body>
+</html>

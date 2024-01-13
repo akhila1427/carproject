@@ -1,0 +1,103 @@
+<!-- Buy Now Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Now Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      max-height: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #product-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    #product-details {
+      margin-top: 20px;
+    }
+
+    #buy-now-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="product-title">Product title</h2>
+    <img id="product-image" src="./main.html" alt="Product Image">
+
+    <div id="product-details">
+      <p id="product-price">Price: $99.99</p>
+      <p id="product-description">Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <button id="buy-now-btn">Buy Now</button>
+</div>
+
+  <script>
+  
+    var productData = {
+      title: "Product title",
+      image: "./main.html", 
+      price: "$99.99",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    };
+  
+    function updateProductDetails() {
+      document.getElementById('product-title').innerText = productData.title;
+      document.getElementById('product-image').src = productData.image;
+      document.getElementById('product-price').innerText = "Price: " + productData.price;
+      document.getElementById('product-description').innerText = "Description: " + productData.description;
+    }
+  
+
+    updateProductDetails();
+  
+    
+    
+    var storedProduct = localStorage.getItem("productToBuy");
+
+if (storedProduct && isValidJSON(storedProduct)) {
+    productData = JSON.parse(storedProduct);
+    updateProductDetails();
+}
+
+
+document.getElementById('buy-now-btn').addEventListener('click', function () {
+      alert('Product purchased! Your order has been placed');
+      window.location.href = './address.html';
+    });
+    
+    function isValidJSON(str) {
+      try {
+        JSON.parse(str);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+  
+  </script>
+</body>
+</html>

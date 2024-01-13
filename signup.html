@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D9AFD9;
+background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+        background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+ }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        #signup-form {
+            width: 300px;
+            border: 1px solid #0c0b0b;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="signup-form">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br><br>
+
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+                <br><br>
+
+                <label for="signup-username">Username:</label>
+                <input type="text" id="signup-username" name="signup-username" required>
+                <br><br>
+
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="signup-password" required>
+                <br><br>
+
+                <button type="button" onclick="signup()">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function signup() {
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var signupUsername = document.getElementById("signup-username").value;
+            var signupPassword = document.getElementById("signup-password").value;
+
+        
+
+            alert("Signup successful! Redirecting to main webpage.");
+            window.location.href = "./main.html";
+
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
