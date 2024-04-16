@@ -1,95 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    #content-container {
-      border: 1px solid black;
-      padding: 20px; 
-      max-width: 600px;
-      max-height: 400px;
-      margin: 20px auto;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Your Car</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #D9AFD9;
+            background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
 
-    li {
-      border: 1px solid black;
-      list-style-type: none;
-      padding: 10px;
-      width: 480px;
-      text-align: center;
-    }
-    
-  </style>
+        ul.navbar {
+            list-style-type: none;
+            padding:  20px;
+            margin: 0;
+            background-color: #001F3F;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            width: 100%;
+           
+        }
+
+        ul.navbar li {
+          text-decoration: none;
+            font-size: 20px;
+            margin: 0 100px;
+        }
+
+        ul.navbar a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        ul.navbar a:hover {
+          
+            background-color: black;
+            border-radius: 10px;
+            text-decoration: none;
+            
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 800px; 
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 50%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            background-color: #001F3F;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .content-container {
+            text-align: center;
+        }
+
+        .content-item {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
+ 
+    <ul class="navbar">
+        <li><a href="./main.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./contactus.html">Contact Us</a></li>
+        <li><a href="./login.html">Login</a></li>
+        <li><a href="./signup.html">Signup</a></li>
+    </ul>
 
-
-    <img src="" alt="">
-    <h1></h1>
+  
+    <div class="card-container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Rent Your Car</h1>
+            </div>
+            <div class="card-body">
+                <img src="" alt="">
+                <div class="content-container">
+                    <div class="content-item" id="title"></div>
+                    <div class="content-item" id="description"></div>
+                    <div class="content-item" id="category"></div>
+                    <div class="content-item" id="price"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-      var a = localStorage.getItem("viewmore");
-      console.log(a);
+        var a = localStorage.getItem("viewmore");
+        console.log(a);
 
-      var b = JSON.parse(a);
-      console.log(b);
+        var b = JSON.parse(a);
+        console.log(b);
 
-      let img = document.getElementsByTagName("img");
-      img[0].setAttribute("src", b.image)
-      img[0].style.width = "500px";
-      img[0].style.height = "300px";
+        let img = document.querySelector("img");
+        img.setAttribute("src", b.image);
 
-      var c = []
-      c.push(b)
-      c.map((val) => {
-        let d = document.createElement("li")
-        d.innerText = val.id
-        document.body.appendChild(d)
-      })
-
-      var c = []
-      c.push(b)
-      c.map((val) => {
-        let d = document.createElement("li")
-        d.innerText = val.title
-        document.body.appendChild(d)
-      })
-
-      var c = []
-      c.push(b)
-      c.map((val) => {
-        let d = document.createElement("li")
-        d.innerText = val.description
-        document.body.appendChild(d)
-      })
-
-      var c = []
-      c.push(b)
-      c.map((val) => {
-        let d = document.createElement("li")
-        d.innerText = val.category
-        document.body.appendChild(d)
-      })
-
-      var c = []
-      c.push(b)
-      c.map((val) => {
-        let d = document.createElement("li")
-        d.innerText = val.price
-        document.body.appendChild(d)
-      })
-
-bt1.addEventListener("click", function () {
-  localStorage.setItem("Add to Cart", JSON.stringify(b));
-  window.location.assign("./addto.html");
-});
-document.body.appendChild(bt1);
+        document.getElementById("title").innerText = "Title: " + b.title;
+        document.getElementById("description").innerText = "Description: " + b.description;
+        document.getElementById("category").innerText = "Category: " + b.category;
+        document.getElementById("price").innerText = "Price: " + b.price;
     </script>
-
 </body>
 </html>

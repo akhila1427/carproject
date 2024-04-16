@@ -4,22 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rental Car</title>
-  <!-- Bootstrap CSS -->
+
   
 <style>
-   table,
-  tr,
-  th,
-  td,
-  image {
-    border: 1px solid silver;
-    /* padding: 10px; */
-    border-radius: 3px;
-  }
-
-  table {
-    width: 100%;
-  }
+   
 
   body {
     margin: 0;
@@ -27,14 +15,15 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    overflow-x: hidden; 
+    overflow-x: hidden;
+   
   }
 
   div {
     text-align: center;
   }
-  body{background-color: #8EC5FC;
-background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  body{background-color:white;
+background-image: white;
 
     background-repeat: no-repeat;
   background-size: cover;}
@@ -60,7 +49,7 @@ background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 
     ul.navbar a:hover {
       text-decoration: none;
-      background-color: lightsalmon;
+      background-color: grey;
       border-radius: 10px;
     }
 
@@ -70,7 +59,7 @@ background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
       font-size: 30px;
       font-weight: bold;
       color:yellow;
-      background-color: lightsalmon;
+      background-color: grey;
       border-radius: 10px;
       position: relative;
       top: 15px;
@@ -120,9 +109,10 @@ background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 
     <!-- ============================================================= -->
     
-      <img src="./ba2.jpg" alt="Zoomable Image" style="width: 100%; height: 700px;">
+      <img src="./ak.jpg" alt="Zoomable Image" style="width: 100%; height: 700px;">
 
     <br><br>
+    <hr>
   <!-- =============================================================================== -->
    
   <script href="">
@@ -223,142 +213,140 @@ background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
             "rate": 4.0,
             "count": 100
         }
-    },
-    {
-        "id": 9,
-        "title": "BMW Car ",
-        "price": 4000,
-        "description": "multi-zone climate control, a panoramic sunroof, multiple driving modes, connected car tech, premium audio setup, and more. The automaker also has started offering ADAS-tech on its cars, allowing them up to Level 2 semi-autonomous driving capabilities",
-        "category": "Car Rental",
-        "image": "./9.jpg",
-        "rating": {
-            "rate": 4.4,
-            "count": 203
-        }
+    
         
     }]
   
+for (let i = 0; i < obj.length; i += 2) {
+    let row = document.createElement("div");
+    row.className = "row";
+    row.style.display = "flex";
+    row.style.justifyContent = "space-around";
+    document.body.appendChild(row);
+
+    let card1 = createCard(obj[i]);
+    row.appendChild(card1);
+
+    if (i + 1 < obj.length) {
+        let card2 = createCard(obj[i + 1]);
+        row.appendChild(card2);
+    }
+}
+
+function createCard(val) {
+    let card = document.createElement("div");
+    card.className = "card";
+    card.style.width = "400px";
+    card.style.border = "1px solid black";
+    card.style.margin = "10px";
+    card.style.padding = "10px";
+    card.style.borderRadius="20px";
+    card.style.backgroundColor="lightgrey"
+
+    let idElement = document.createElement("div");
     
-    let tabl=document.createElement("table")
-    document.body.appendChild(tabl)
+    idElement.style.fontWeight = "bold";
+    card.appendChild(idElement);
 
-  obj.map((val,index,arr)=>{
-      let tr1=document.createElement("tr")
-      tabl.appendChild(tr1)
+    let titleElement = document.createElement("div");
+    titleElement.innerText = `Title: ${val.title}`;
+    titleElement.style.fontSize = "20px";
+    titleElement.style.fontWeight = "bold";
+    card.appendChild(titleElement);
 
-      let td1=document.createElement("td")
-      td1.innerText=val.id
-      td1.style.width="50px"
-      td1.style.fontWeight = "bold";
-      td1.className = "id-column"
-      td1.style.color="black";
-      tr1.appendChild(td1)
-
-
-      let td2=document.createElement("td")
-      td2.innerText=val.title
-      td2.style.width="250px"
-      td2.style.fontSize="20px"
-      td2.style.color="black"
-      td2.style.fontWeight = "bold";
-      tr1.appendChild(td2)
-
-
-      let td3 = document.createElement("td");
-let im = document.createElement("img");
-im.setAttribute("src", val.image);
-im.style.width = "750px";
-im.addEventListener("mouseover", function () {
-  im.style.transform = "scale(1.1)";
-  im.style.transition = "transform 0.3s";
-});
-im.addEventListener("mouseout", function () {
-  im.style.transform = "scale(1)";
-});
-td3.style.textAlign = "center"; 
-td3.appendChild(im);
-tr1.appendChild(td3);
-
-     
-let td4=document.createElement("td")
-let btn=document.createElement("button")
-btn.innerText="view more";
-btn.style.width="100px";
-btn.style.height="40px";
-btn.style.borderRadius="15px";
-btn.style.fontSize="16px";
-btn.style.backgroundColor="lightgreen";
-btn.addEventListener("click",function(e){
-  e.preventDefault();
-  localStorage.setItem("viewmore",JSON.stringify(val))
-window.location.assign("./viewmore.html")
-})
-td4.appendChild(btn)
-tr1.appendChild(td4)
-
-
-
-
-let td5 = document.createElement("td");
-    let addToCartImg = document.createElement("img");
-    addToCartImg.src = "./add.png"; 
-    addToCartImg.alt = "Add to Cart";
-    addToCartImg.style.width = "100px";
-    addToCartImg.style.height = "100px";
-    addToCartImg.style.borderRadius = "50px";  
-addToCartImg.style.cursor = "pointer";
- addToCartImg.addEventListener("click", () => {
-      let cart = localStorage.getItem("item");
-      let cart1 = cart !== null ? JSON.parse(cart) : [];
-      let qua = cart1.find((item) => item.id === obj[index].id);
-      if (qua) {
-        qua.quantity = (qua.quantity || 1) + 1;
-      } else {
-        obj[index].quantity = 1;
-        cart1.push(obj[index]);
-      }
-
-      localStorage.setItem("item", JSON.stringify(cart1));
-      window.location.assign("./addto.html");
-    });
-
-    td5.appendChild(addToCartImg);
-    tr1.appendChild(td5);
-  });
-
-  var a = document.createElement("div");
-a.innerText = "Address";
-a.style.fontWeight = "bold";
-a.style.color = "yellow";
-a.style.fontSize = "25px";
-document.body.appendChild(a);
-
-
-var footer = document.createElement("div");
-footer.className = "footer";
-footer.style.backgroundColor = "#001F3F";
-footer.style.padding = "20px";
-footer.style.fontWeight = "bold";
-footer.style.color = "white";
-footer.style.textAlign = "center";
-document.body.appendChild(footer);
-
-var contactDetails = document.createElement("div");
-contactDetails.className = "contact-details";
-contactDetails.style.backgroundColor = "#001F3F"; 
-
-contactDetails.innerHTML = "<p>Email: Royalcars@gmail.com</p><p>Contact Number: +1234 5566 6462r</p>";
-footer.appendChild(contactDetails);
-
-
-  var socialLinks = document.createElement("div");
-  socialLinks.className = "social-links";
-  socialLinks.innerHTML =
-    '<a href="https://www.facebook.com/CarDekho/"><img src="./so1.jpg" width="70px" height="50px"></a>' +
-    '<a href="https://www.instagram.com/cardekhoindia/?hl=en"><img src="./so2.jpg" width="70px" height="50px"></a>' +
-    '<a href="https://twitter.com/CarDekho?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="so3.jpg" width="70px" height="50px"></a>';
+    
+    let imageElement = document.createElement("img");
+    imageElement.src = val.image;
+    imageElement.style.width = "100%";
+    imageElement.style.marginTop = "10px";
   
-  footer.appendChild(socialLinks);
+    imageElement.addEventListener("mouseover", function () {
+        imageElement.style.transform = "scale(1.1)";
+        imageElement.style.transition = "transform 0.3s";
+    });
+    imageElement.addEventListener("mouseout", function () {
+        imageElement.style.transform = "scale(1)";
+    });
+    card.appendChild(imageElement);
+
+   
+    let viewMoreBtn = document.createElement("button");
+    viewMoreBtn.innerText = "View More";
+    viewMoreBtn.style.width = "100px";
+    viewMoreBtn.style.height = "40px";
+    viewMoreBtn.style.borderRadius = "15px";
+    viewMoreBtn.style.fontSize = "16px";
+    viewMoreBtn.style.backgroundColor = "lightgreen";
+    viewMoreBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.setItem("viewmore", JSON.stringify(val));
+        window.location.assign("./viewmore.html");
+    });
+    card.appendChild(viewMoreBtn);
+
+    let addToCartBtn = document.createElement("button");
+    addToCartBtn.innerText = "Rent A Car";
+    addToCartBtn.style.width = "100px";
+    addToCartBtn.style.height = "40px";
+    addToCartBtn.style.borderRadius = "15px";
+   
+    addToCartBtn.style.fontSize = "16px";
+    addToCartBtn.style.backgroundColor = "lightblue";
+    addToCartBtn.style.marginTop = "10px";
+    addToCartBtn.addEventListener("click", function () {
+        let cart = localStorage.getItem("item");
+        let cart1 = cart !== null ? JSON.parse(cart) : [];
+        let existingItem = cart1.find((item) => item.id === val.id);
+        if (existingItem) {
+            existingItem.quantity = (existingItem.quantity || 1) + 1;
+        } else {
+            val.quantity = 1;
+            cart1.push(val);
+        }
+        localStorage.setItem("item", JSON.stringify(cart1));
+        window.location.assign("./addto.html");
+    });
+    card.appendChild(addToCartBtn);
+
+    return card;
+}
+
+let addressElement = document.createElement("div");
+addressElement.innerText = "Address";
+addressElement.style.fontWeight = "bold";
+
+addressElement.style.fontSize = "25px";
+addressElement.style.marginTop = "20px";
+document.body.appendChild(addressElement);
+
+
+function createFooter() {
+    var footer = document.createElement("div");
+    footer.className = "footer";
+    footer.style.backgroundColor = "white";
+    footer.style.padding = "20px";
+    footer.style.fontWeight = "bold";
+    footer.style.color = "#001F3F"; 
+    footer.style.textAlign = "center";
+
+    var contactDetails = document.createElement("div");
+    contactDetails.className = "contact-details";
+    contactDetails.innerHTML = "<p>Email: Royalcars@gmail.com</p><p>Contact Number: +1234 5566 6462r</p>";
+
+    var socialLinks = document.createElement("div");
+    socialLinks.className = "social-links";
+    socialLinks.innerHTML =
+        '<a href="https://www.facebook.com/CarDekho/"><img src="./fa.jpg" width="70px" height="50px"></a>' +
+        '<a href="https://www.instagram.com/cardekhoindia/?hl=en"><img src="./in.jpg" width="70px" height="50px"></a>' +
+        '<a href="https://twitter.com/CarDekho?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="so3.jpg" width="70px" height="50px"></a>';
+
+    footer.appendChild(contactDetails);
+    footer.appendChild(socialLinks);
+    return footer;
+}
+
+document.body.appendChild(createFooter());
+
 
 
 

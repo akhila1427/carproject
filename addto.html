@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,42 +13,127 @@
             background-color: #f4f4f4;
         }
 
+        .navbar {
+            list-style-type: none;
+            padding: 5px;
+            margin: 0;
+            font-size: 25px;
+            background-color: #001F3F;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #ffffff;
+        }
+
+        .navbar li {
+            display: inline-block;
+            margin: 0 30px;
+            color: #ffffff;
+        }
+
+        .navbar a:hover {
+            text-decoration: none;
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        .website-name:hover {
+            font-size: 30px;
+            font-weight: bold;
+            color: Black;
+            background-color: white;
+            border-radius: 10px;
+            position: relative;
+            top: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            top: 15px;
+        }
+
+        .logo img {
+            margin-right: 10px;
+            width: 50px;
+            height: 50px;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            padding: 20px;
+        }
+
+        .cart-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
         }
 
         img {
-            width: 100%;
-            cursor: pointer;
-            height: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
         }
 
         h1,
         p {
-            text-align: center;
+            margin: 0;
         }
 
         button {
-            display: block;
-            width: 100%;
-            padding: 10px;
+            padding: 8px 16px;
             background-color: #3498db;
             color: #fff;
-            text-align: center;
-            text-decoration: none;
+            border: none;
             cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
             margin-top: 10px;
+        }
+
+        .button-container button:last-child {
+            margin-right: 0;
         }
     </style>
 </head>
 
 <body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="./ba.jpg" alt="Website Logo">
+            <span class="website-name">Royal Cars</span>
+        </div>
+        <div>
+            <a href="./main.html"><li>Home</li></a>
+            <a href="./about.html"><li>About</li></a>
+            <a href="./contactus.html"><li>Contact Us</li></a>
+            <a href="./login.html"><li>Login</li></a>
+            <a href="./signup.html"><li>Signup</li></a>
+        </div>
+    </div>
+
     <div class="container">
-        <h1>Shopping Cart</h1>
+        <h1>BOOK Your CAR</h1>
+        <div id="cartItems"></div>
     </div>
 
     <script>
@@ -59,58 +143,46 @@
         var cartItems = JSON.parse(storedItems);
         console.log(cartItems);
 
-        function handleImageClick(productData) {
-            localStorage.setItem("selectedProduct", JSON.stringify(productData));
-            window.location.href = './buynow.html';
-        }
+        const cartContainer = document.getElementById("cartItems");
 
-        for (let i = cartItems.length - 1; i >= 0; i--) {
-            let img = document.createElement("img");
-            img.setAttribute("src", cartItems[i].image);
-            img.style.width = "600px";
-            img.style.cursor = "pointer";
-            document.querySelector(".container").appendChild(img);
+        cartItems.forEach(item => {
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
 
-            let title = document.createElement("h1");
-            title.innerText = cartItems[i].title;
-            document.querySelector(".container").appendChild(title);
+            const img = document.createElement("img");
+            img.src = item.image;
 
-            var priceParagraph = document.createElement("p");
-            priceParagraph.innerText = "Price: " + cartItems[i].price;
+            const itemDetails = document.createElement("div");
+            itemDetails.innerHTML = `<h1>${item.title}</h1><p>Price: ${item.price}</p>`;
 
-            if (cartItems[i].quantity) {
-                priceParagraph.innerHTML += "<br> Quantity: " + cartItems[i].quantity;
-            }
+            const buttonsContainer = document.createElement("div");
+            buttonsContainer.classList.add("button-container");
 
-            document.querySelector(".container").appendChild(priceParagraph);
-
-            let removeButton = document.createElement("button");
-            removeButton.innerHTML = "Remove item";
-            removeButton.addEventListener("click", function () {
-                cartItems.splice(i, 1);
+            const removeButton = document.createElement("button");
+            removeButton.innerText = "Remove Item";
+            removeButton.addEventListener("click", () => {
+                cartItems = cartItems.filter(i => i.id !== item.id);
                 localStorage.setItem("item", JSON.stringify(cartItems));
-
-                img.remove();
-                title.remove();
-                priceParagraph.remove();
-                removeButton.remove();
-                buyNowButton.remove();
-
-                location.reload();
+                cartContainer.removeChild(cartItem);
             });
 
-            priceParagraph.appendChild(removeButton);
+            const buyNowButton = document.createElement("button");
+            buyNowButton.innerText = "Rent A Car";
+            buyNowButton.addEventListener("click", () => {
+                // alert(`Rent A Car clicked for item: ${item.title}`);
+                window.location.href = "./address.html";
 
-            let buyNowButton = document.createElement("button");
-            buyNowButton.innerHTML = "Buy Now";
-            buyNowButton.addEventListener("click", function () {
-                localStorage.setItem("productToBuy", JSON.stringify(cartItems[i]));
-
-                alert("Buy Now clicked for item: " + cartItems[i].title);
-                window.location.href = './buynow.html';
             });
-            priceParagraph.appendChild(buyNowButton);
-        }
+
+            buttonsContainer.appendChild(removeButton);
+            buttonsContainer.appendChild(buyNowButton);
+
+            cartItem.appendChild(img);
+            cartItem.appendChild(itemDetails);
+            cartItem.appendChild(buttonsContainer);
+
+            cartContainer.appendChild(cartItem);
+        });
     </script>
 </body>
 

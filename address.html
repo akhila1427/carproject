@@ -5,39 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Address Details</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-container input[type="text"],
+    .form-container button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    .form-container button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #45a049;
+    }
     .error {
       color: red;
+      margin-top: 5px;
+      font-size: 14px;
     }
-    form {
-      border: 2px solid black;
-      width: 300px;
-      height: 250px;
-    }
-    /* body{background-image: url(./addr.jpg);
-    background-repeat: no-repeat;
-background-size: cover;} */
   </style>
 </head>
 <body>
-  <center>
-    <h2>Enter Your Address Details to receive the order</h2>
-    <form id="addressForm" onsubmit="validateAddress(); return false;">
-      <br><br>
-      <label for="street">Street Address:</label>
-      <input type="text" id="street" name="street">
-      <br><br>
-      <label for="city">City:          </label>
-      <input type="text" id="city" name="city">
-      <br><br>
-      <label for="state">State:</label>
-      <input type="text" id="state" name="state">
-      <br><br>
-      <label for="zip">ZIP Code:</label>
-      <input type="text" id="zip" name="zip">
-      <br><br>
-      <button type="submit">Submit</button>
-    </form>
-  </center>
+  <div class="container">
+    <div class="form-container">
+      <h2>Enter Your Address and Date Details</h2>
+      <form id="addressForm" onsubmit="validateAddress(); return false;">
+        <label for="street">Street Address:</label>
+        <input type="text" id="street" name="street">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state">
+        <label for="zip">ZIP Code:</label>
+        <input type="text" id="zip" name="zip">
+        <label for="date">Date for Car Booking:</label>
+        <br>
+        <input type="date" id="date" name="date">
+        <br><br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
 
   <script>
     function validateAddress() {
@@ -48,7 +87,7 @@ background-size: cover;} */
       var state = document.getElementById('state').value;
       var zip = document.getElementById('zip').value;
 
-      // Perform validation
+     
       if (street === '') {
         showError('street', 'Street address is required.');
       }
@@ -88,4 +127,4 @@ background-size: cover;} */
     }
   </script>
 </body>
-</html
+</html>

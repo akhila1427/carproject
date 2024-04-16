@@ -5,14 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{background-image: url(./ab.jpg);
-        background-repeat: no-repeat;
-    background-size: cover;}
-    h1,h2{background-color: lightseagreen;
-    display: inline-block;}
+             ul.navbar {
+      list-style-type: none;
+      padding: 5px;
+      margin: 0;
+      font-size: 25px;
+      background-color: #001F3F;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    ul.navbar li {
+      display: inline-block;
+      margin: 0 30px;
+      color: #ffffff;
+    }
+
+    ul.navbar a:hover {
+      text-decoration: none;
+      background-color: black;
+      border-radius: 10px;
+    }
+
+    
+
+    .website-name:hover{
+      font-size: 30px;
+      font-weight: bold;
+      color:yellow;
+      background-color: white;
+      border-radius: 10px;
+      position: relative;
+      top: 15px;
+   
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      top: 15px;
+    }
+
+    .logo img {
+      margin-right: 10px;
+      width: 80px;
+      height: 80px;
+    }
+
+   
+  .id-column {
+    text-align: center;
+  }
     </style>
 </head>
 <body>
+    <div class="container">
+        <ul class="navbar">
+          <div class="logo">
+            <img src="./ba.jpg" alt="Website Logo" >
+            <span class="website-name">Royal Cars</span>
+          </div>
+          <div>
+            <a href="./main.html"><li>Home</li></a>
+            <a href="./about.html"><li>About</li></a>
+            <a href="./contactus.html"><li>Contact Us</li></a>
+            <a href="./login.html"><li>Login</li></a>
+            <a href="./signup.html"><li>signup</li></a>
+            <a href="./addto.html">
+              <img src="./a.png" alt="Add to Cart" width="80px" height="45px" style="position: relative; top: 16px;">
+          </a>
+    
+          </div>
+        </ul>
+
+    <br><br>
+
+    <h1>Contact With Us</h1>
+    <div>
+
     <h1>About Royal Cars</h1>
 <p style="color:black;font-weight:700;">CarDekho.com is India's leading car search venture that helps users buy cars that are right for them. Its website and app carry rich automotive content such as expert reviews, detailed specs and prices, comparisons as well as videos and pictures of all car brands and models available in India. The company has tie-ups with many auto manufacturers, more than 4000 car dealers and numerous financial institutions to facilitate the purchase of vehicles.<br>
 

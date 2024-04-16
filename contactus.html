@@ -5,47 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <style>
-        body{background-image: url(./ca.jpg);
-        background-repeat: no-repeat;
-    background-size: cover;}
-    form{color: black;
-    font-weight: bold;
-font-size: 20px;}
+       
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color:Black
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid black;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); 
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50; 
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049; 
+        }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            margin-right: 10px;
+        }
+        ul.navbar {
+      list-style-type: none;
+      padding: 5px;
+      margin: 0;
+      font-size: 25px;
+      background-color: #001F3F;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    ul.navbar li {
+      display: inline-block;
+      margin: 0 30px;
+      color: #ffffff;
+    }
+
+    ul.navbar a:hover {
+      text-decoration: none;
+      background-color: black;
+      border-radius: 10px;
+    }
+
+    
+
+    .website-name:hover{
+      font-size: 30px;
+      font-weight: bold;
+      color:Black;
+      background-color: white;
+      border-radius: 10px;
+      position: relative;
+      top: 15px;
+   
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      top: 15px;
+    }
+
+    .logo img {
+      margin-right: 10px;
+      width: 80px;
+      height: 80px;
+    }
+
+   
+  .id-column {
+    text-align: center;
+  }
+  
     </style>
 </head>
 <body>
-    <h1>Contact With Us</h1>
+    <div class="container">
+        <ul class="navbar">
+          <div class="logo">
+            <img src="./ba.jpg" alt="Website Logo" >
+            <span class="website-name">Royal Cars</span>
+          </div>
+          <div>
+            <a href="./main.html"><li>Home</li></a>
+            <a href="./about.html"><li>About</li></a>
+            <a href="./contactus.html"><li>Contact Us</li></a>
+            <a href="./login.html"><li>Login</li></a>
+            <a href="./signup.html"><li>signup</li></a>
+            <a href="./addto.html">
+              <img src="./a.png" alt="Add to Cart" width="80px" height="45px" style="position: relative; top: 16px;">
+          </a>
+    
+          </div>
+        </ul>
 
-    <br><br><br><br>
-    <center>
-    <div style="border: 1px solid black; width: 300px;">
-        <br><br>
+    <br><br>
+
+    <h1>Contact With Us</h1>
+    <div>
         <form id="contactForm">
-            FirstName: <input type="text" id="firstName"><br><br>
-            LastName: <input type="text" id="lastName"><br><br>
-            Email.ID: <input type="text" id="email"><br><br>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+
+            <label for="email">Email ID:</label>
+            <input type="text" id="email" required>
+
             <label for="myTextarea">Message:</label>
-            <textarea id="myTextarea" name="myTextarea" rows="4" cols="30"></textarea>
-            <input type="button" value="Submit" onclick="submitForm()"><br><br>
+            <textarea id="myTextarea" name="myTextarea" rows="4" cols="30" required></textarea>
+
+            <input type="button" value="Submit" onclick="submitForm()">
         </form>
     </div>
-    <br><br>
-  <a href="https://www.facebook.com/CarDekho/"><img src="./fa.jpg" width="100px" height="100px" style="border-radius: 40px;"></a> 
-  <a href="https://www.instagram.com/cardekhoindia/?hl=en"><img src="./ti.jpg" width="100px" height="100px" style="border-radius: 40px;"></a> 
-  <a href="https://twitter.com/CarDekho?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="./in.jpg" width="100px" height="100px"></a> 
-    </center>
+
+    <div class="social-links">
+        <a href="https://www.facebook.com/CarDekho/"><img src="./fa.jpg" width="100px" height="100px" style="border-radius: 40px;"></a>
+        <a href="https://www.instagram.com/cardekhoindia/?hl=en"><img src="./so3.jpg" width="100px" height="100px" style="border-radius: 40px;"></a>
+        <a href="https://twitter.com/CarDekho?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="./in.jpg" width="100px" height="100px"></a>
+    </div>
 
     <script>
         function submitForm() {
-            // Get values from the form
             var firstName = document.getElementById("firstName").value;
             var lastName = document.getElementById("lastName").value;
             var email = document.getElementById("email").value;
             var message = document.getElementById("myTextarea").value;
 
-           
             alert("Thank you! We received your details.");
-
             window.location.href = "main.html";
         }
     </script>
